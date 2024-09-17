@@ -1,0 +1,133 @@
+﻿@model IV.Models.User
+@{
+    ViewData["Title"] = "LoginUser";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background */
+            color: #333; /* Text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding-bottom: 120px;
+        }
+
+        h1 {
+            color: #ec407a; /* Medium pink */
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: 500;
+                margin-bottom: 5px;
+                color: #555; /* Dark gray text */
+                font-size: 1.125rem;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background-color: #ec407a; /* Medium pink */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            .btn-primary:hover {
+                background-color: #d81b60; /* Darker pink on hover */
+                transform: scale(1.05); /* Slight zoom on hover */
+            }
+
+        .text-danger {
+            color: #c2185b; /* Dark pink error text */
+            margin-top: 10px;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password {
+            text-decoration: none;
+            color: #d81b60;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login User</h1>
+
+        <form asp-action="LoginUser" method="post">
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-options">
+                <div>
+                    <input type="checkbox" id="rememberMe" />
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <div>
+                    <a href="/ForgotPassword" class="forgot-password">Forgot Password?</a>
+                </div>
+            </div>
+
+            <input type="submit" value="Login" class="btn-primary" />
+        </form>
+    </div>
+</body>
+</html>

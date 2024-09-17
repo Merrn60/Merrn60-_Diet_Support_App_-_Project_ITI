@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard";
+    var userName = "User"; // Replace with actual user's name from the model or session
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background */
+            color: #333; /* Text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff; /* White background for the container */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #ec407a; /* Medium pink */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #555; /* Dark gray text */
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            background-color: #ec407a; /* Medium pink */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            .btn-primary:hover {
+                background-color: #d81b60; /* Darker pink on hover */
+                transform: scale(1.05); /* Slight zoom on hover */
+            }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .logout-button {
+            background-color: #f44336; /* Red color for logout */
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            .logout-button:hover {
+                background-color: #c62828; /* Darker red on hover */
+                transform: scale(1.05); /* Slight zoom on hover */
+            }
+
+        
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h2>Welcome, @userName!</h2>
+
+        <div>
+            <h3>What would you like to do?</h3>
+            <a href="@Url.Action("ShowRandomQuote", "User")" class="btn-primary">View a Quote</a>
+            <a href="@Url.Action("ShowRandomVideo", "User")" class="btn-primary">View a Video</a>
+            <a href="@Url.Action("CalorieCalculator", "User")" class="btn-primary">Calorie Calculator</a>
+            <a href="@Url.Action("AccountSettings", "User")" class="btn-primary">Account Settings</a>
+        </div>
+
+        <a href="@Url.Action("Logout", "Account")" class="logout-button">Logout</a>
+    </div>
+</body>
+</html>

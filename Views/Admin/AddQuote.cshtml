@@ -1,0 +1,113 @@
+﻿@model IV.Models.MotivationalQuote
+
+@{
+    ViewData["Title"] = "Add Quote";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background for consistency */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            padding-bottom: 40px;
+        }
+
+        h2 {
+            color: #ec407a; /* Consistent pink */
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea.form-control {
+            height: 120px;
+            resize: none;
+        }
+
+        .btn-primary {
+            background-color: #ec407a;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+            .btn-primary:hover {
+                background-color: #d81b60;
+            }
+
+        /* Validation Message Styling */
+        .validation-message {
+            color: red;
+            font-size: 0.875rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add a New Motivational Quote</h2>
+
+        <form asp-action="AddQuote" method="post">
+            <div class="form-group">
+                <label asp-for="Content">Quote</label>
+                <textarea asp-for="Content" class="form-control" placeholder="Enter the motivational quote"></textarea>
+                <span asp-validation-for="Content" class="validation-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Author">Author</label>
+                <input asp-for="Author" class="form-control" placeholder="Enter the author's name (optional)" />
+                <span asp-validation-for="Author" class="validation-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Category">Category</label>
+                <input asp-for="Category" class="form-control" placeholder="Enter a category (optional)" />
+                <span asp-validation-for="Category" class="validation-message"></span>
+            </div>
+
+            <button type="submit" class="btn-primary">Add Quote</button>
+        </form>
+    </div>
+</body>
+</html>

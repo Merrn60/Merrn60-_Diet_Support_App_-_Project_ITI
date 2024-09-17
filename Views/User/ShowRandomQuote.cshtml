@@ -1,0 +1,120 @@
+﻿@model IV.Models.MotivationalQuote
+
+@{
+    ViewData["Title"] = "Random Quote";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background */
+            color: #333; /* Text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff; /* White background for the container */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #ec407a; /* Medium pink */
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        blockquote {
+            background-color: #fef4f9; /* Very light pink background for the quote */
+            border-left: 5px solid #ec407a; /* Medium pink left border */
+            padding: 20px;
+            margin: 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: #555; /* Dark gray text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+        }
+
+            blockquote p {
+                margin: 0;
+                font-size: 1.25rem;
+                line-height: 1.6; /* Improve readability */
+            }
+
+            blockquote footer {
+                text-align: right;
+                font-size: 1rem;
+                color: #333; /* Darker color for author name */
+                margin-top: 10px;
+            }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #ec407a; /* Medium pink */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            .btn-back:hover {
+                background-color: #d81b60; /* Darker pink on hover */
+                transform: scale(1.05); /* Slight zoom on hover */
+            }
+
+        .favorite-btn {
+            display: inline-block;
+            font-size: 2rem;
+            color: #ec407a; /* Medium pink */
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+            .favorite-btn.liked {
+                color: #d81b60; /* Darker pink when liked */
+            }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h2>@ViewData["Title"]</h2>
+
+        @if (Model != null)
+        {
+            <div>
+                <blockquote>
+                    <p>@Model.Content</p>
+                    <footer>- @Model.Author</footer>
+                </blockquote>
+            </div>
+            <div>
+                <span id="favorite-btn" class="favorite-btn @(Model.IsFavorite ? "liked" : "")">&#9829;</span> <!-- Heart symbol -->
+            </div>
+        }
+        else
+        {
+            <p>No quotes available.</p>
+        }
+
+        <a href="@Url.Action("UserDashboard", "User")" class="btn-back">Back to Dashboard</a>
+    </div>
+
+   
+</body>
+</html>

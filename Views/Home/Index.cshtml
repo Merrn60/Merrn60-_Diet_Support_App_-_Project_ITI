@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink color for a calming effect */
+            color: #333; /* Text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #ec407a; /* Soft pink color */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #666; /* Darker gray for better contrast */
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: 500;
+                margin-bottom: 5px;
+                color: #666; /* Dark gray */
+                font-size: 1.25rem; /* Larger font size for the labels */
+            }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2); /* Enlarge radio buttons */
+        }
+
+        input[type="submit"] {
+            background-color: #ec407a; /* Pink color */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #d81b60; /* Darker pink when hovering */
+                transform: scale(1.05); /* Slight enlargement when hovering */
+            }
+
+        p {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #666; /* Light text color */
+        }
+
+            p a {
+                color: #ec407a; /* Pink color */
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+                p a:hover {
+                    text-decoration: underline;
+                }
+
+        .description {
+            color: #999; /* Light gray color for the description */
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Start Your Journey to a Healthy Lifestyle!</h1>
+        <h2>Select Your Role and Begin Your Transformation</h2>
+
+        <form action="@Url.Action("SelectRole", "Home")" method="post">
+            <div class="form-group">
+                <input type="radio" name="role" value="User" id="user-role" />
+                <label for="user-role">User - <span class="description">For users aiming to maintain their health</span></label>
+            </div>
+            <div class="form-group">
+                <input type="radio" name="role" value="Admin" id="admin-role" />
+                <label for="admin-role">Admin - <span class="description">Manage content and statistics</span></label>
+            </div>
+            <div class="form-group">
+                <input type="radio" name="role" value="NewUser" id="newuser-role" />
+                <label for="newuser-role">New User - <span class="description">For new users ready to begin their health journey</span></label>
+            </div>
+            <input type="submit" value="Get Started" />
+        </form>
+
+        <p>Ready to transform your life?</p>
+    </div>
+</body>
+</html>
